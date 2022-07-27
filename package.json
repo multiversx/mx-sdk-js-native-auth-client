@@ -1,0 +1,46 @@
+{
+  "name": "@elrondnetwork/native-auth-client",
+  "version": "0.1.0",
+  "description": "Native authentication client-side",
+  "main": "lib/src/index.js",
+  "types": "lib/src/index.d.ts",
+  "files": [
+    "lib/src/**/*"
+  ],
+  "scripts": {
+    "test": "jest test/*",
+    "build": "tsc",
+    "lint": "eslint \"{src,apps,libs,test}/**/*.ts\"",
+    "lint:fix": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ElrondNetwork/native-auth-client.git"
+  },
+  "keywords": [
+    "elrond",
+    "native",
+    "auth",
+    "client"
+  ],
+  "author": "ElrondNetwork",
+  "license": "GPL-3.0-or-later",
+  "devDependencies": {
+    "@babel/core": "^7.17.8",
+    "@babel/preset-env": "^7.16.11",
+    "@babel/preset-typescript": "^7.16.7",
+    "@types/axios": "^0.14.0",
+    "@types/jest": "^27.4.1",
+    "@types/node": "^16.11.10",
+    "@typescript-eslint/eslint-plugin": "^5.12.0",
+    "@typescript-eslint/parser": "^5.16.0",
+    "axios-mock-adapter": "^1.20.0",
+    "babel-jest": "^27.5.1",
+    "eslint": "^8.9.0",
+    "jest": "^27.5.1",
+    "typescript": "^4.3.5"
+  },
+  "dependencies": {
+    "axios": "^0.27.2"
+  }
+}
