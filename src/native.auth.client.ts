@@ -19,9 +19,8 @@ export class NativeAuthClient {
   async initialize(extraInfo: any = {}): Promise<string> {
     const blockHash = await this.getCurrentBlockHash(this.config.blockHashShard);
     const encodedExtraInfo = this.encodeValue(JSON.stringify(extraInfo));
-    const host = this.encodeValue(this.config.host);
 
-    return `${host}.${blockHash}.${this.config.expirySeconds}.${encodedExtraInfo}`;
+    return `${blockHash}.${this.config.expirySeconds}.${encodedExtraInfo}`;
   }
 
   private async getCurrentBlockHash(shard?: number): Promise<string> {
