@@ -34,6 +34,10 @@ export class NativeAuthClient {
   }
 
   private encodeValue(str: string) {
-    return Buffer.from(str, "utf8").toString("base64");
+    return this.escape(Buffer.from(str, "utf8").toString("base64"));
+  }
+
+  private escape(str: string) {
+    return str.replace(/\+/g, "-").replace(/\//g, "_").replace(/=/g, "");
   }
 }
