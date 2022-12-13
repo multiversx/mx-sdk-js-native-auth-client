@@ -13,7 +13,8 @@ Native Authenticator for JavaScript and TypeScript (written in TypeScript).
 const client = new NativeAuthClient();
 const init = await client.initialize();
 
-// obtain signature by signing token
+// obtain signature by signing the following message:
+// `${ADDRESS}${init}{}`
 
 const accessToken = client.getToken(address, init, signature);
 ```
