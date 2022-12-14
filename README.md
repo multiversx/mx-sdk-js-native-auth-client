@@ -14,7 +14,7 @@ const client = new NativeAuthClient();
 const init = await client.initialize();
 
 // obtain signature by signing the following message:
-// `${ADDRESS}${init}{}`
+// `${address}${init}`
 
 const accessToken = client.getToken(address, init, signature);
 ```
