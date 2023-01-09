@@ -17,17 +17,47 @@ export class NativeAuthClient {
   }
 
   async initialize(extraInfo: any = {}): Promise<string> {
-    const blockHash = await this.getCurrentBlockHash(this.config.blockHashShard);
+    const blockHash = await this.getCurrentBlockHash();
     const encodedExtraInfo = this.encodeValue(JSON.stringify(extraInfo));
     const host = this.encodeValue(this.config.host);
 
     return `${host}.${blockHash}.${this.config.expirySeconds}.${encodedExtraInfo}`;
   }
 
-  private async getCurrentBlockHash(shard?: number): Promise<string> {
+  private async getCurrentBlockHash(): Promise<string> {
+    if (this.config.gatewayUrl) {
+      return await this.getCurrentBlockHashWithGateway();
+    }
+    return await this.getCurrentBlockHashWithApi();
+  }
+
+  private async getCurrentBlockHashWithGateway(): Promise<string> {
+    const round = await this.getCurrentRound();
+    const url = `${this.config.gatewayUrl}/blocks/by-round/${round}`;
+    const response = await axios.get(url);
+    const blocks = response.data.data.blocks;
+    const block = blocks.filter((block: { shard: number }) => block.shard === this.config.blockHashShard)[0];
+    return block.hash;
+  }
+
+  private async getCurrentRound(): Promise<number> {
+    if (!this.config.gatewayUrl) {
+        throw new Error("Gateway URL not set");
+    }
+    if (!this.config.blockHashShard) {
+        throw new Error("Blockhash shard not set");
+    }
+
+    const url = `${this.config.gatewayUrl}/network/status/${this.config.blockHashShard}`;
+    const response = await axios.get(url);
+    const status = response.data.data.status;
+    return status.erd_current_round;
+  }
+
+  private async getCurrentBlockHashWithApi(): Promise<string> {
     let url = `${this.config.apiUrl}/blocks?size=1&fields=hash`;
-    if (shard !== undefined) {
-      url += `&shard=${shard}`;
+    if (this.config.blockHashShard !== undefined) {
+      url += `&shard=${this.config.blockHashShard}`;
     }
 
     const response = await axios.get(url);
