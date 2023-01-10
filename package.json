@@ -1,5 +1,5 @@
 {
-  "name": "@multiversx/mx-sdk-erdjs-native-auth-client",
+  "name": "@multiversx/native-auth-client",
   "version": "0.1.6",
   "description": "Native authentication client-side",
   "main": "lib/src/index.js",
