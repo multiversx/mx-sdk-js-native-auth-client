@@ -1,6 +1,6 @@
 {
-  "name": "@elrondnetwork/native-auth-client",
-  "version": "0.1.5",
+  "name": "@multiversx/mx-sdk-erdjs-native-auth-client",
+  "version": "0.1.6",
   "description": "Native authentication client-side",
   "main": "lib/src/index.js",
   "types": "lib/src/index.d.ts",
@@ -15,15 +15,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ElrondNetwork/native-auth-client.git"
+    "url": "git+https://github.com/MultiversX/mx-sdk-erdjs-native-auth-client.git"
   },
   "keywords": [
-    "elrond",
+    "multiversx",
     "native",
     "auth",
     "client"
   ],
-  "author": "ElrondNetwork",
+  "author": "MultiversX",
   "license": "GPL-3.0-or-later",
   "devDependencies": {
     "@babel/core": "^7.17.8",
