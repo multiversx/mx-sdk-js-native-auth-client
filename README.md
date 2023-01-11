@@ -4,7 +4,7 @@ Native Authenticator for JavaScript and TypeScript (written in TypeScript).
 
 ## Distribution
 
-[npm](https://www.npmjs.com/package/@multiversx/mx-sdk-erdjs-native-auth-client)
+[npm](https://www.npmjs.com/package/@multiversx/sdk-native-auth-client)
 
 ## Example
 

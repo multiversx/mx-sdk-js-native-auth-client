@@ -1,6 +1,6 @@
 {
-  "name": "@multiversx/native-auth-client",
-  "version": "0.1.7",
+  "name": "@multiversx/sdk-native-auth-client",
+  "version": "0.1.8",
   "description": "Native authentication client-side",
   "main": "lib/src/index.js",
   "types": "lib/src/index.d.ts",
