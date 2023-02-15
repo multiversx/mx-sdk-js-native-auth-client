@@ -19,9 +19,9 @@ export class NativeAuthClient {
   async initialize(extraInfo: any = {}): Promise<string> {
     const blockHash = await this.getCurrentBlockHash();
     const encodedExtraInfo = this.encodeValue(JSON.stringify(extraInfo));
-    const host = this.encodeValue(this.config.host);
+    const origin = this.encodeValue(this.config.origin);
 
-    return `${host}.${blockHash}.${this.config.expirySeconds}.${encodedExtraInfo}`;
+    return `${origin}.${blockHash}.${this.config.expirySeconds}.${encodedExtraInfo}`;
   }
 
   private async getCurrentBlockHash(): Promise<string> {
@@ -42,10 +42,10 @@ export class NativeAuthClient {
 
   private async getCurrentRound(): Promise<number> {
     if (!this.config.gatewayUrl) {
-        throw new Error("Gateway URL not set");
+      throw new Error("Gateway URL not set");
     }
     if (!this.config.blockHashShard) {
-        throw new Error("Blockhash shard not set");
+      throw new Error("Blockhash shard not set");
     }
 
     const url = `${this.config.gatewayUrl}/network/status/${this.config.blockHashShard}`;

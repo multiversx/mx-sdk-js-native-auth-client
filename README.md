@@ -32,8 +32,8 @@ When initializing the client object, an optional config can also be specified wi
   // When used from within a browser, will contain the hostname by default.
   // It can be overridden for special situations
   // Note: The server-side component will validate the `origin` header, which must
-  // match with the provided host in the client-side configuration
-  host: string = 'myApp.com';
+  // match with the provided origin in the client-side configuration
+  origin: string = 'https://myApp.com';
 
   // The endpoint from where the current block information will be fetched upon initialization.
   // The default value points to the mainnet API, but can be overridden to be network-specific
