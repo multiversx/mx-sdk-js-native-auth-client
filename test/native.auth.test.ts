@@ -5,12 +5,12 @@ import { NativeAuthClient } from '../src';
 describe("Native Auth", () => {
   let mock: MockAdapter;
   const ADDRESS = 'erd1qnk2vmuqywfqtdnkmauvpm8ls0xh00k8xeupuaf6cm6cd4rx89qqz0ppgl';
-  const SIGNATURE = '563cb2dfdf96ab335423a05287fa3cd00154034423d0062421ee6ce03230d941da6df9ce79689fcd173c0ba5d4331b3ccd82c8ec2e6ab4d875db1587c2ab720c';
-  const BLOCK_HASH = '82ec8044966efb2d00e8a6367ea23ddbc7bea6504ed98f4a1a536d7c21bb2682';
+  const SIGNATURE = '906e79d54e69e688680abee54ec0c49ce2561eb5abfd01865b31cb3ed738272c7cfc4fc8cc1c3590dd5757e622639b01a510945d7f7c9d1ceda20a50a817080d';
+  const BLOCK_HASH = 'ab459013b27fdc6fe98eed567bd0c1754e0628a4cc16883bf0170a29da37ad46';
   const TTL = 86400;
   const ORIGIN = 'https://api.multiversx.com';
-  const TOKEN = `YXBpLm11bHRpdmVyc3guY29t.${BLOCK_HASH}.${TTL}.e30`;
-  const ACCESS_TOKEN = 'ZXJkMXFuazJ2bXVxeXdmcXRkbmttYXV2cG04bHMweGgwMGs4eGV1cHVhZjZjbTZjZDRyeDg5cXF6MHBwZ2w.WVhCcExtMTFiSFJwZG1WeWMzZ3VZMjl0LjgyZWM4MDQ0OTY2ZWZiMmQwMGU4YTYzNjdlYTIzZGRiYzdiZWE2NTA0ZWQ5OGY0YTFhNTM2ZDdjMjFiYjI2ODIuODY0MDAuZTMw.563cb2dfdf96ab335423a05287fa3cd00154034423d0062421ee6ce03230d941da6df9ce79689fcd173c0ba5d4331b3ccd82c8ec2e6ab4d875db1587c2ab720c';
+  const TOKEN = `aHR0cHM6Ly9hcGkubXVsdGl2ZXJzeC5jb20.${BLOCK_HASH}.${TTL}.e30`;
+  const ACCESS_TOKEN = 'ZXJkMXFuazJ2bXVxeXdmcXRkbmttYXV2cG04bHMweGgwMGs4eGV1cHVhZjZjbTZjZDRyeDg5cXF6MHBwZ2w.YUhSMGNITTZMeTloY0drdWJYVnNkR2wyWlhKemVDNWpiMjAuYWI0NTkwMTNiMjdmZGM2ZmU5OGVlZDU2N2JkMGMxNzU0ZTA2MjhhNGNjMTY4ODNiZjAxNzBhMjlkYTM3YWQ0Ni44NjQwMC5lMzA.906e79d54e69e688680abee54ec0c49ce2561eb5abfd01865b31cb3ed738272c7cfc4fc8cc1c3590dd5757e622639b01a510945d7f7c9d1ceda20a50a817080d';
 
   const onLatestBlockHashGet = function (mock: MockAdapter): RequestHandler {
     return mock.onGet('https://api.multiversx.com/blocks?size=1&fields=hash');
@@ -62,18 +62,18 @@ describe("Native Auth", () => {
 describe("Native Auth with gateway", () => {
   let mock: MockAdapter;
   const ADDRESS = 'erd1qnk2vmuqywfqtdnkmauvpm8ls0xh00k8xeupuaf6cm6cd4rx89qqz0ppgl';
-  const SIGNATURE = '563cb2dfdf96ab335423a05287fa3cd00154034423d0062421ee6ce03230d941da6df9ce79689fcd173c0ba5d4331b3ccd82c8ec2e6ab4d875db1587c2ab720c';
-  const BLOCK_HASH = '82ec8044966efb2d00e8a6367ea23ddbc7bea6504ed98f4a1a536d7c21bb2682';
+  const SIGNATURE = '906e79d54e69e688680abee54ec0c49ce2561eb5abfd01865b31cb3ed738272c7cfc4fc8cc1c3590dd5757e622639b01a510945d7f7c9d1ceda20a50a817080d';
+  const BLOCK_HASH = 'ab459013b27fdc6fe98eed567bd0c1754e0628a4cc16883bf0170a29da37ad46';
   const TTL = 86400;
   const ORIGIN = 'https://api.multiversx.com';
-  const TOKEN = `YXBpLm11bHRpdmVyc3guY29t.${BLOCK_HASH}.${TTL}.e30`;
-  const ACCESS_TOKEN = 'ZXJkMXFuazJ2bXVxeXdmcXRkbmttYXV2cG04bHMweGgwMGs4eGV1cHVhZjZjbTZjZDRyeDg5cXF6MHBwZ2w.WVhCcExtMTFiSFJwZG1WeWMzZ3VZMjl0LjgyZWM4MDQ0OTY2ZWZiMmQwMGU4YTYzNjdlYTIzZGRiYzdiZWE2NTA0ZWQ5OGY0YTFhNTM2ZDdjMjFiYjI2ODIuODY0MDAuZTMw.563cb2dfdf96ab335423a05287fa3cd00154034423d0062421ee6ce03230d941da6df9ce79689fcd173c0ba5d4331b3ccd82c8ec2e6ab4d875db1587c2ab720c';
-  const latestRound = 115656;
+  const TOKEN = `aHR0cHM6Ly9hcGkubXVsdGl2ZXJzeC5jb20.${BLOCK_HASH}.${TTL}.e30`;
+  const ACCESS_TOKEN = 'ZXJkMXFuazJ2bXVxeXdmcXRkbmttYXV2cG04bHMweGgwMGs4eGV1cHVhZjZjbTZjZDRyeDg5cXF6MHBwZ2w.YUhSMGNITTZMeTloY0drdWJYVnNkR2wyWlhKemVDNWpiMjAuYWI0NTkwMTNiMjdmZGM2ZmU5OGVlZDU2N2JkMGMxNzU0ZTA2MjhhNGNjMTY4ODNiZjAxNzBhMjlkYTM3YWQ0Ni44NjQwMC5lMzA.906e79d54e69e688680abee54ec0c49ce2561eb5abfd01865b31cb3ed738272c7cfc4fc8cc1c3590dd5757e622639b01a510945d7f7c9d1ceda20a50a817080d';
+  const LATEST_ROUND = 115656;
   const METASHARD = 4294967295;
   const GATEWAY = 'https://gateway.multiversx.com';
 
   const onBlocksByRound = function (mock: MockAdapter): RequestHandler {
-    return mock.onGet(`${GATEWAY}/blocks/by-round/${latestRound}`);
+    return mock.onGet(`${GATEWAY}/blocks/by-round/${LATEST_ROUND}`);
   };
 
   //https://testnet-gateway.multiversx.com/network/status/4294967295
@@ -97,7 +97,7 @@ describe("Native Auth with gateway", () => {
         blockHashShard: METASHARD,
       });
 
-      onNetworkStatus(mock).reply(200, { data: { status: { erd_current_round: latestRound } } });
+      onNetworkStatus(mock).reply(200, { data: { status: { erd_current_round: LATEST_ROUND } } });
       onBlocksByRound(mock).reply(200, { data: { blocks: [{ shard: METASHARD, hash: BLOCK_HASH }] } });
 
       const token = await client.initialize();
@@ -122,7 +122,7 @@ describe("Native Auth with gateway", () => {
         blockHashShard: METASHARD,
       });
 
-      onNetworkStatus(mock).reply(200, [{ data: { status: { erd_current_round: latestRound } } }]);
+      onNetworkStatus(mock).reply(200, [{ data: { status: { erd_current_round: LATEST_ROUND } } }]);
       onBlocksByRound(mock).reply(500);
 
       await expect(client.initialize()).rejects.toThrow();
