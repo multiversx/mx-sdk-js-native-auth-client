@@ -34,7 +34,7 @@ export class NativeAuthClient {
   private async getCurrentBlockHashWithGateway(): Promise<string> {
     const round = await this.getCurrentRound();
     const url = `${this.config.gatewayUrl}/blocks/by-round/${round}`;
-    const response = await axios.get(url);
+    const response = await this.get(url);
     const blocks = response.data.data.blocks;
     const block = blocks.filter((block: { shard: number }) => block.shard === this.config.blockHashShard)[0];
     return block.hash;
@@ -49,7 +49,7 @@ export class NativeAuthClient {
     }
 
     const url = `${this.config.gatewayUrl}/network/status/${this.config.blockHashShard}`;
-    const response = await axios.get(url);
+    const response = await this.get(url);
     const status = response.data.data.status;
     return status.erd_current_round;
   }
@@ -60,7 +60,7 @@ export class NativeAuthClient {
       url += `&shard=${this.config.blockHashShard}`;
     }
 
-    const response = await axios.get(url);
+    const response = await this.get(url);
     return response.data[0].hash;
   }
 
@@ -70,5 +70,9 @@ export class NativeAuthClient {
 
   private escape(str: string) {
     return str.replace(/\+/g, "-").replace(/\//g, "_").replace(/=/g, "");
+  }
+
+  private async get(url: string): Promise<any> {
+    return await axios.get(url, { headers: this.config.extraRequestHeaders });
   }
 }
