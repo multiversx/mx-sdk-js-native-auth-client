@@ -4,4 +4,5 @@ export class NativeAuthClientConfig {
   expirySeconds: number = 60 * 60 * 24;
   blockHashShard?: number;
   gatewayUrl?: string;
+  extraRequestHeaders?: { [key: string]: string };
 }
