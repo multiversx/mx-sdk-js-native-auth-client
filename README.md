@@ -49,5 +49,9 @@ When initializing the client object, an optional config can also be specified wi
   // Useful in the situations where the server connects directly to a node to fetch block info
   // and would like a predictable shard for the validation of tokens
   blockHashShard: 0;
+
+  // Optional, to put custom HTTP headers in the request that is made to the api
+  // Useful in situations where a private api is used and is protected by a JTW token
+  extraRequestHeaders?: { [key: string]: string };
 }
 ```
