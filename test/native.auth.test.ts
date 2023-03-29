@@ -13,7 +13,7 @@ describe("Native Auth", () => {
   const ACCESS_TOKEN = 'ZXJkMXFuazJ2bXVxeXdmcXRkbmttYXV2cG04bHMweGgwMGs4eGV1cHVhZjZjbTZjZDRyeDg5cXF6MHBwZ2w.YUhSMGNITTZMeTloY0drdWJYVnNkR2wyWlhKemVDNWpiMjAuYWI0NTkwMTNiMjdmZGM2ZmU5OGVlZDU2N2JkMGMxNzU0ZTA2MjhhNGNjMTY4ODNiZjAxNzBhMjlkYTM3YWQ0Ni44NjQwMC5lMzA.906e79d54e69e688680abee54ec0c49ce2561eb5abfd01865b31cb3ed738272c7cfc4fc8cc1c3590dd5757e622639b01a510945d7f7c9d1ceda20a50a817080d';
 
   const onLatestBlockHashGet = function (mock: MockAdapter): RequestHandler {
-    return mock.onGet('https://api.multiversx.com/blocks?size=1&fields=hash');
+    return mock.onGet('https://api.multiversx.com/blocks/latest&fields=hash');
   };
 
   beforeAll(() => {
