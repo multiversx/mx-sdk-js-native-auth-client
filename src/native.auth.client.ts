@@ -55,7 +55,7 @@ export class NativeAuthClient {
   }
 
   private async getCurrentBlockHashWithApi(): Promise<string> {
-    let url = `${this.config.apiUrl}/blocks/latest&fields=hash`;
+    let url = `${this.config.apiUrl}/blocks/latest?ttl=${this.config.expirySeconds}&fields=hash`;
     if (this.config.blockHashShard !== undefined) {
       url += `&shard=${this.config.blockHashShard}`;
     }
