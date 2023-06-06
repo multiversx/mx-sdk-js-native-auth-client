@@ -58,8 +58,8 @@ export class NativeAuthClient {
     try {
       const url = `${this.config.apiUrl}/blocks/latest?ttl=${this.config.expirySeconds}&fields=hash`;
       const response = await this.get(url);
-      if (response.data[0].hash !== undefined) {
-          return response.data[0].hash;
+      if (response?.data?.hash !== undefined) {
+          return response.data.hash;
       }
     } catch (error) {}
     return this.getCurrentBlockHashWithApiFallback();
