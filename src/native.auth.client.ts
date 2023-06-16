@@ -24,7 +24,7 @@ export class NativeAuthClient {
     return `${origin}.${blockHash}.${this.config.expirySeconds}.${encodedExtraInfo}`;
   }
 
-  private async getCurrentBlockHash(): Promise<string> {
+  async getCurrentBlockHash(): Promise<string> {
     if (this.config.gatewayUrl) {
       return await this.getCurrentBlockHashWithGateway();
     }
@@ -59,7 +59,7 @@ export class NativeAuthClient {
       const url = `${this.config.apiUrl}/blocks/latest?ttl=${this.config.expirySeconds}&fields=hash`;
       const response = await this.get(url);
       if (response?.data?.hash !== undefined) {
-          return response.data.hash;
+        return response.data.hash;
       }
     } catch (error) {}
     return this.getCurrentBlockHashWithApiFallback();
@@ -74,7 +74,7 @@ export class NativeAuthClient {
     const response = await this.get(url);
     return response.data[0].hash;
   }
-  private encodeValue(str: string) {
+  encodeValue(str: string) {
     return this.escape(Buffer.from(str, "utf8").toString("base64"));
   }
 
