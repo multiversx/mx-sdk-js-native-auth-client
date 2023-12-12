@@ -1,6 +1,6 @@
 {
   "name": "@multiversx/sdk-native-auth-client",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Native authentication client-side",
   "main": "lib/src/index.js",
   "types": "lib/src/index.d.ts",
@@ -26,20 +26,20 @@
   "author": "MultiversX",
   "license": "GPL-3.0-or-later",
   "devDependencies": {
-    "@babel/core": "^7.17.8",
-    "@babel/preset-env": "^7.16.11",
-    "@babel/preset-typescript": "^7.16.7",
-    "@types/jest": "^27.4.1",
+    "@babel/core": "^7.23.6",
+    "@babel/preset-env": "^7.23.6",
+    "@babel/preset-typescript": "^7.23.3",
+    "@types/jest": "^29.5.11",
     "@types/node": "^16.11.10",
     "@typescript-eslint/eslint-plugin": "^5.12.0",
     "@typescript-eslint/parser": "^5.16.0",
     "axios-mock-adapter": "^1.20.0",
     "babel-jest": "^27.5.1",
     "eslint": "^8.9.0",
-    "jest": "^27.5.1",
+    "jest": "^29.7.0",
     "typescript": "^4.3.5"
   },
   "dependencies": {
-    "axios": "^1.6.1"
+    "axios": "^1.6.2"
   }
 }
