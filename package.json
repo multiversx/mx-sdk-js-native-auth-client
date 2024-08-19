@@ -41,8 +41,5 @@
   },
   "dependencies": {
     "axios": "^1.7.4"
-  },
-  "resolutions": {
-    "braces": "^3.0.3"
   }
 }
