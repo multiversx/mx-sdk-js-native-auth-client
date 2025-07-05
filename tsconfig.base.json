@@ -1,0 +1,31 @@
+{
+    "compilerOptions": {
+        "outDir": "lib",
+        "lib": [
+            "es2021",
+            "dom"
+        ],
+        "target": "es2021",
+        "sourceMap": true,
+        "allowJs": true,
+        "baseUrl": "./src",
+        "strict": true,
+        "strictPropertyInitialization": true,
+        "strictNullChecks": true,
+        "skipLibCheck": true,
+        "noImplicitReturns": true,
+        "noFallthroughCasesInSwitch": true,
+        "noUnusedParameters": true,
+        "esModuleInterop": true,
+        "declaration": true,
+        "experimentalDecorators": true,
+        "useDefineForClassFields": false
+    },
+    "include": [
+        "src/**/*"
+    ],
+    "exclude": [
+        "node_modules",
+        "lib"
+    ]
+} 
