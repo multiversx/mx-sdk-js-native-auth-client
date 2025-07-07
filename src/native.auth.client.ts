@@ -59,9 +59,6 @@ export class NativeAuthClient {
   private async getCurrentBlockHashWithApi(): Promise<string> {
     try {
       const url = `${this.config.apiUrl}/blocks/latest?ttl=${this.config.expirySeconds}&fields=hash`;
-
-      console.log("getCurrentBlockHashWithApi");
-
       const response = await this.get(url);
       if (response.data[0].hash !== undefined) {
         return response.data[0].hash;
@@ -88,12 +85,6 @@ export class NativeAuthClient {
   }
 
   private async get(url: string): Promise<any> {
-    // Bypass TypeScript for debugging (not recommended for production)
-    const requestInterceptors = (axios.interceptors.request as any).handlers;
-    const responseInterceptors = (axios.interceptors.response as any).handlers;
-
-    console.log("Request interceptors set:", requestInterceptors.length > 0);
-    console.log("Response interceptors set:", responseInterceptors.length > 0);
     return await axios.get(url, { headers: this.config.extraRequestHeaders });
   }
 }
