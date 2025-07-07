@@ -16,7 +16,7 @@ const shared = {
   target: ["esnext"],
   platform: "node",
   external: [],
-  outbase: "src", // <- preserve folder structure
+  outbase: "src",
 };
 
 // ESM build
@@ -32,6 +32,7 @@ esbuild
 esbuild
   .build({
     ...shared,
+    target: "es2015",
     outdir: "lib/cjs",
     format: "cjs",
   })
