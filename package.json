@@ -2,23 +2,24 @@
   "name": "@multiversx/sdk-native-auth-client",
   "version": "1.0.10-alpha.6",
   "description": "Native authentication client-side",
-  "main": "lib/index.mjs",
-  "module": "lib/src/index.js",
-  "types": "lib/src/index.d.ts",
+  "main": "lib/cjs/index.js",
+  "module": "lib/esm/index.js",
+  "types": "lib/types/index.d.ts",
   "files": [
     "lib/**/*"
   ],
   "exports": {
     ".": {
-      "import": "./lib/src/index.js",
-      "require": "./lib/index.mjs"
+      "require": "./lib/cjs/index.js",
+      "import": "./lib/esm/index.js",
+      "types": "./lib/types/index.d.ts"
     }
   },
+  "sideEffects": false,
   "scripts": {
     "test": "jest test/*",
     "compile": "tsc && tsc-alias",
-    "build-esbuild": "rimraf lib && node esbuild.js",
-    "build": "yarn build-esbuild && yarn compile",
+    "build": "node esbuild.js && tsc",
     "lint": "eslint \"{src,apps,libs,test}/**/*.ts\"",
     "lint:fix": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
     "unpublish-verdaccio": "npm unpublish @multiversx/sdk-native-auth-client --force --registry http://localhost:4873",

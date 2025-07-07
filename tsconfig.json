@@ -1,18 +1,15 @@
 {
-  "extends": "./tsconfig.base.json",
-  "compilerOptions": {
-    "target": "es2015",
-    "module": "CommonJS",
-    "declaration": true,
-    "outDir": "./lib",
-    "strict": true
-  },
-  "include": [
-    "src",
-    "test"
-  ],
-  "exclude": [
-    "node_modules",
-    "**/__tests__/*"
-  ]
+ "compilerOptions": {
+  "target": "ESNext",
+  "module": "ESNext",
+  "moduleResolution": "node",
+  "declaration": true,
+  "emitDeclarationOnly": true,
+  "outDir": "lib/types",
+  "rootDir": "src",
+  "strict": true,
+  "esModuleInterop": true,
+  "skipLibCheck": true
+ },
+ "include": ["src"]
 }
