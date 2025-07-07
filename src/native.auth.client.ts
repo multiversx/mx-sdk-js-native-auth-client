@@ -36,7 +36,9 @@ export class NativeAuthClient {
     const url = `${this.config.gatewayUrl}/blocks/by-round/${round}`;
     const response = await this.get(url);
     const blocks = response.data.data.blocks;
-    const block = blocks.filter((block: { shard: number }) => block.shard === this.config.blockHashShard)[0];
+    const block = blocks.filter(
+      (block: { shard: number }) => block.shard === this.config.blockHashShard
+    )[0];
     return block.hash;
   }
 
